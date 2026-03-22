@@ -65,8 +65,10 @@ This repository has a small top-level layout with the Vite React app inside the 
 
 | File | Description |
 |---|---|
-| `package.json` | Defines the project name, dependencies (React, React DOM), dev dependencies (Vite, TypeScript, ESLint + plugins), and npm scripts: `dev`, `build`, `lint`, and `preview`. |
+| `package.json` | Defines the project name, dependencies (React, React DOM, React Router, dnd-kit, Supabase JS), dev dependencies (Vite, TypeScript, ESLint + plugins), and npm scripts: `dev`, `build`, `lint`, and `preview`. |
 | `package-lock.json` | Auto-generated lockfile that pins the exact versions of every installed package for reproducible installs. |
+| `.env` | Local environment variables (not committed). Must define `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLIC_KEY`. |
+| `.env.example` | Template showing which env vars are required — copy to `.env` and fill in your Supabase credentials. |
 | `vite.config.ts` | Vite configuration file. Loads the `@vitejs/plugin-react` plugin to enable JSX/TSX support and React Fast Refresh (HMR). |
 | `tsconfig.json` | Root TypeScript config. References the two child configs below instead of setting compiler options directly. |
 | `tsconfig.app.json` | TypeScript settings for the app source code (`src/`). Targets ES2023, enables strict mode, JSX with `react-jsx`, and bundler-style module resolution. |
@@ -87,15 +89,15 @@ Files in `public/` are served as-is at the site root and are **not** processed b
 
 | File / Folder | Purpose |
 |---|---|
-| `main.tsx` | App entry point. Imports global styles and mounts the React tree to `#root`. |
-| `App.tsx` | Top-level app component / layout. Replace with your app's routing and pages. |
-| `assets/` | Static assets (images, SVGs) imported by the app and optimized by Vite. |
-| `components/` | Reusable UI components (buttons, lists, cards, etc.). |
-| `pages/` | Page-level components or route targets (e.g., `Home`, `Watchlist`, `MovieDetail`). |
-| `hooks/` | Custom React hooks (data fetching, form helpers, auth helpers). |
-| `services/` | API clients and services (Supabase client, network wrappers, persistence). |
-| `utils/` | Small utility functions and helpers used across the app. |
-| `styles/` | Shared style files, design tokens, and global CSS modules. |
+| `main.tsx` | App entry point. Imports `global.css`, mounts the React tree inside `<StrictMode>` to `#root`. |
+| `App.tsx` | Root app component. Sets up `<BrowserRouter>` and `<Routes>` — all page routes are registered here. |
+| `pages/` | Page-level route components (one file per route). |
+| `components/` | Reusable UI components (buttons, cards, lists, modals, etc.). |
+| `hooks/` | Custom React hooks (data fetching, form helpers, auth state, etc.). |
+| `services/` | API clients and external service wrappers (Supabase client, etc.). |
+| `styles/` | Shared/global CSS files and design tokens. |
+| `assets/` | Static assets (images, SVGs) imported in code and optimized by Vite at build time. |
+| `utils/` | Small utility/helper functions used across the app. |
 
 ### `src/assets/`
 
