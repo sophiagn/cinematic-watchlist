@@ -54,6 +54,7 @@ The development server runs on a local port (Vite defaults to `http://localhost:
 
 This repository has a small top-level layout with the Vite React app inside the `client/` folder. Key top-level files/folders:
 
+- `.vscode` — contains extension recommendations for VS Code
 - `.gitignore` — repo-level ignore rules (covers `client/node_modules`, build `dist`, logs, editor files, Supabase temp files)
 - `README.md` — project overview and docs
 - `client/` — the frontend app scaffolded by Vite
