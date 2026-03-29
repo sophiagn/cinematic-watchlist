@@ -33,6 +33,15 @@ export async function signIn(email: string, password: string) {
     return data;
 }
 
+export async function getCurrentSession() {
+    const { data: { session }, error } = await supabase.auth.getSession();
+
+    if (error || !session) {
+        console.error('Error getting session: ', error?.message);
+    }
+    return session;
+}
+
 export async function signOut() {
     const { error } = await supabase.auth.signOut();
 
