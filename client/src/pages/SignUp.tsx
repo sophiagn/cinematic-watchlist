@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signUp } from '../services/userService';
 import { isEmailValid, isPasswordValid } from '../utils/userUtil';
+import '../styles/auth.css';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -45,47 +46,52 @@ export default function SignUp() {
   }
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSignUp}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            id="confirmPassword"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p>{error}</p>}
-        <button type="submit" disabled={loading}>
-          {loading ? 'Signing up...' : 'Sign Up'}
-        </button>
-      </form>
-      <p>
-        Already have an account? <a href="/login">Log In</a>
-      </p>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h1>Create an Account</h1>
+        {error && <p className="auth-error">{error}</p>}
+        <form onSubmit={handleSignUp}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              autoComplete="new-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              type="password"
+              autoComplete="new-password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" disabled={loading}>
+            {loading ? <span className="spinner" /> : 'Sign Up'}
+          </button>
+        </form>
+        <p className="auth-link">
+          <a href="/login">Already have an account?</a>
+        </p>
+      </div>
     </div>
   );
 }

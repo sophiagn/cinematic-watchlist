@@ -4,6 +4,8 @@
   --color3: #E51A1A;
   --color4: #731212;
   --color5: #2B0000;
+  --color6: #000000;
+  --color7: #faf5f5;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -12,8 +14,8 @@
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
-  color: var(--color5);
-  background: var(--color1);
+  color: var(--color6);
+  background: linear-gradient(to bottom, var(--color5), black);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,8 +23,7 @@
 }
 
 #root {
-  /* width: 1126px; */
-  min-width: 100%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   min-height: 100svh;
@@ -42,24 +43,15 @@ h2 {
   color: var(--text-color5);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+a {
+  color: var(--color3);
+  transition: color 0.2s ease;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+
+a:hover {
+  color: var(--color4);
 }
-p {
-  margin: 0;
+
+a:active {
+  color: var(--color5);
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signIn } from '../services/userService';
+import '../styles/auth.css';
 
 export default function LogIn() {
   const [email, setEmail] = useState('');
@@ -27,37 +28,41 @@ export default function LogIn() {
   }
 
   return (
-    <div>
-      <h1>Log In</h1>
-      <form onSubmit={handleLogIn}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p>{error}</p>}
-        <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Log In'}
-        </button>
-      </form>
-      <p>
-        Don't have an account? <a href="/signup">Sign Up</a>
-      </p>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h1>Welcome Back</h1>
+        {error && <p className="auth-error">{error}</p>}
+        <form onSubmit={handleLogIn}>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" disabled={loading}>
+            {loading ? <span className="spinner" /> : 'Log In'}
+          </button>
+        </form>
+        <p className="auth-link">
+          <a href="/signup">Don't have an account?</a>
+        </p>
+      </div>
     </div>
   );
 }
