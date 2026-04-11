@@ -44,14 +44,14 @@ h2 {
 }
 
 a {
-  color: var(--color3);
+  color: blue;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color4);
+  color: rgb(46, 119, 255);
 }
 
 a:active {
-  color: var(--color5);
+  color: rgb(0, 47, 150);
 }

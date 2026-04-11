@@ -73,6 +73,10 @@
     background: #ba1818;
 }
 
+.auth-card button:active:not(:disabled) {
+    background: #731212;
+}
+
 .auth-card button:disabled {
     opacity: 0.75;
     cursor: not-allowed;
@@ -89,7 +93,9 @@
 .auth-link {
     margin-bottom: -10px;
     margin-top: 40px;
-    justify-self: left;}
+    justify-self: left;
+    font-size: 15px;
+}
 
 .spinner {
     display: inline-block;
