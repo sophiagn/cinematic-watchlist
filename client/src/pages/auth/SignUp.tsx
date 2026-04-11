@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signUp } from '../services/userService';
-import { isEmailValid, isPasswordValid } from '../utils/userUtil';
-import '../styles/auth.css';
+import { signUp } from '../../services/userService';
+import { isEmailValid, isPasswordValid } from '../../utils/userUtil';
+import '../../styles/auth.css';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -42,7 +42,7 @@ export default function SignUp() {
       return;
     }
 
-    navigate('/login');
+    navigate('/');
   }
 
   return (
@@ -89,7 +89,7 @@ export default function SignUp() {
           </button>
         </form>
         <p className="auth-link">
-          <a href="/login">Already have an account?</a>
+          <a href="/">Already have an account?</a>
         </p>
       </div>
     </div>
