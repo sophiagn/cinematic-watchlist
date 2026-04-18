@@ -34,6 +34,7 @@
     font-weight: 500;
 }
 
+/* Input fields */
 .auth-card input {
     width: 100%;
     padding: 10px 12px;
@@ -44,6 +45,13 @@
     background-color: var(--color7);
     color: var(--color6);
     outline: none;
+    transition: all 0.2s ease;
+}
+
+.auth-card input:hover {
+    border-color: #9515154a;
+    background-color: #fdf5f5;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 .auth-card input:-webkit-autofill,
@@ -53,35 +61,7 @@
     -webkit-box-shadow: 0 0 0 1000px var(--color7) inset;
 }
 
-.auth-card button {
-    margin-top: 8px;
-    min-width: 80px;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color1);
-    background: var(--color4);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    align-self: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 35%);
-}
-
-.auth-card button:hover:not(:disabled) {
-    background: #ba1818;
-}
-
-.auth-card button:active:not(:disabled) {
-    background: #731212;
-}
-
-.auth-card button:disabled {
-    opacity: 0.75;
-    cursor: not-allowed;
-}
-
+/* Error messages */
 .auth-error {
     color: var(--color3);
     font-size: 14px;
@@ -90,11 +70,36 @@
     line-height: 1.25;
 }
 
-.auth-link {
-    margin-bottom: -10px;
-    margin-top: 40px;
-    justify-self: left;
-    font-size: 15px;
+/* ---Buttons--- */
+
+/* Block button */
+.auth-card form button {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color1);
+    background: var(--color4);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+    width: 100%;
+    min-width: 80px;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    align-self: center;
+    transition: all 0.2s ease;
+}
+
+.auth-card form button:hover:not(:disabled) {
+    background: #ba1818;
+}
+
+.auth-card form button:active:not(:disabled) {
+    background: #731212;
+}
+
+.auth-card form button:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
 }
 
 .spinner {
@@ -111,4 +116,27 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+/* Back button */
+.back-button button {
+    all: unset;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 650;
+    color: var(--color4);
+    display: flex;
+    align-items: center;
+    margin-top: -23px;
+    margin-bottom: 30px;
+    margin-left: -20px;
+    transition: all 0.2s ease;
+}
+
+.back-button button:hover {
+    color: #ba1818;
+}
+
+.back-button button:active {
+    color: #731212;
 }

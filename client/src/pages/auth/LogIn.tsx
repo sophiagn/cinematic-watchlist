@@ -55,12 +55,18 @@ export default function LogIn() {
               required
             />
           </div>
+          <div className="space-btwn-row mt-10 mb-10">
+            <p>PLACEHOLDER</p>
+            <p className="fs15">
+              <a href="/forgot-password">Forgot password</a>
+            </p>
+          </div>
           <button type="submit" disabled={loading}>
             {loading ? <span className="spinner" /> : 'Log In'}
           </button>
         </form>
-        <p className="auth-link">
-          <a href="/signup">Don't have an account?</a>
+        <p className="fs15 mb8 pt8">
+          Don't have an account? <span><a href="/signup">Sign up</a></span>
         </p>
       </div>
     </div>

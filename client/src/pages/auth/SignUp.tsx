@@ -84,12 +84,14 @@ export default function SignUp() {
               required
             />
           </div>
-          <button type="submit" disabled={loading}>
-            {loading ? <span className="spinner" /> : 'Sign Up'}
-          </button>
+          <div className="mt10">
+            <button type="submit" disabled={loading}>
+              {loading ? <span className="spinner" /> : 'Sign Up'}
+            </button>
+          </div>
         </form>
-        <p className="auth-link">
-          <a href="/">Already have an account?</a>
+        <p className="fs15 mb8 pt8">
+          Already have an account? <span><a href="/">Log In</a></span>
         </p>
       </div>
     </div>

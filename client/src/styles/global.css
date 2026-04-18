@@ -55,3 +55,34 @@ a:hover {
 a:active {
   color: rgb(0, 47, 150);
 }
+
+.fs15 {
+  font-size: 15px;
+}
+
+.pt8 {
+  padding-top: 8px;
+}
+
+.mt10 {
+  margin-top: 20px;
+}
+
+.mt-10 {
+  margin-top: -10px;
+}
+
+.mb-10 {
+  margin-bottom: -10px;
+}
+
+.mb8 {
+  margin-bottom: 8px;
+}
+
+.space-btwn-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
