@@ -7,8 +7,8 @@
   --color6: #000000;
   --color7: #faf5f5;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --heading: 'Poppins', system-ui, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -36,13 +36,6 @@ body {
   margin: 0;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-color5);
-}
-
 a {
   color: blue;
   transition: color 0.2s ease;
@@ -54,6 +47,20 @@ a:hover {
 
 a:active {
   color: rgb(0, 47, 150);
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-color5);
+}
+
+.space-btwn-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .fs15 {
@@ -68,6 +75,10 @@ a:active {
   margin-top: 20px;
 }
 
+.mt15 {
+  margin-top: 15px;
+}
+
 .mt-10 {
   margin-top: -10px;
 }
@@ -78,11 +89,4 @@ a:active {
 
 .mb8 {
   margin-bottom: 8px;
-}
-
-.space-btwn-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
