@@ -24,14 +24,18 @@ export default function LogIn() {
       return;
     }
 
-    navigate('/');
+    navigate('/home');
   }
 
   return (
     <div className="auth-page">
+      <h1>Velvet</h1>
+      <h2>Create your watchlists. All in one place.</h2>
       <div className="auth-card">
         <h1>Welcome Back</h1>
-        {error && <p className="auth-error">{error}</p>}
+        <div className="auth-status">
+          {error && <p className="auth-error">{error}</p>}
+        </div>
         <form onSubmit={handleLogIn}>
           <div>
             <label htmlFor="email">Email</label>
@@ -62,7 +66,7 @@ export default function LogIn() {
             </p>
           </div>
           <button type="submit" disabled={loading}>
-            {loading ? <span className="spinner" /> : 'Log In'}
+            {loading ? <span className="spinner light" /> : 'Log In'}
           </button>
         </form>
         <p className="fs15 mb8 pt8">

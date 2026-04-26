@@ -49,7 +49,9 @@ export default function SignUp() {
     <div className="auth-page">
       <div className="auth-card">
         <h1>Create an Account</h1>
-        {error && <p className="auth-error">{error}</p>}
+        <div className="auth-status">
+          {error && <p className="auth-error">{error}</p>}
+        </div>
         <form onSubmit={handleSignUp}>
           <div>
             <label htmlFor="email">Email</label>
@@ -86,7 +88,7 @@ export default function SignUp() {
           </div>
           <div className="mt10">
             <button type="submit" disabled={loading}>
-              {loading ? <span className="spinner" /> : 'Sign Up'}
+              {loading ? <span className="spinner light" /> : 'Sign Up'}
             </button>
           </div>
         </form>
