@@ -1,20 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Auth from './pages/Auth'
 import Home from './pages/Home'
-import SignUp from './pages/SignUp'
-import LogIn from './pages/LogIn'
 import ProtectedRoute from './components/ProtectedRoute'
+
+const protectedPage = (element: React.ReactNode) => (
+  <ProtectedRoute>
+    {element}
+  </ProtectedRoute>
+)
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/" element={
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        } />
+        <Route path="/" element={<Auth />} />
+        <Route path="/home" element={protectedPage(<Home />)} />
       </Routes>
     </BrowserRouter>
   )

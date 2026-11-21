@@ -13,7 +13,7 @@ export default function ProtectedRoute({ children }: Props) {
   useEffect(() => {
     async function checkAuth() {
       const session = await getCurrentSession();
-      setIsAuthenticated(!!session);
+      setIsAuthenticated(!!session?.user);
       setLoading(false);
     }
     checkAuth();
@@ -21,7 +21,7 @@ export default function ProtectedRoute({ children }: Props) {
 
   if (loading) return null;
 
-  if (!isAuthenticated) return <Navigate to="/login" replace />;
+  if (!isAuthenticated) return <Navigate to="/" replace />;
 
   return <>{children}</>;
 }

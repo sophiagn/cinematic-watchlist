@@ -1,3 +1,40 @@
+/* Inter Font (Variable) */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: fallback;
+}
+
+/* Limelight Font */
+@font-face {
+  font-family: 'Limelight';
+  src: url('/fonts/Limelight-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* Poppins Font */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+
 :root {
   --color1: #ffffff;
   --color2: #A85751;
@@ -7,8 +44,8 @@
   --color6: #000000;
   --color7: #faf5f5;
 
-  --sans: 'Inter', system-ui, sans-serif;
-  --heading: 'Poppins', system-ui, sans-serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --heading: 'Poppins', system-ui, -apple-system, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
   font: 18px/145% var(--sans);
@@ -37,12 +74,12 @@ body {
 }
 
 a {
-  color: var(--color3);
+  color: blue;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color4);
+  color: rgb(46, 119, 255);
 }
 
 a:active {

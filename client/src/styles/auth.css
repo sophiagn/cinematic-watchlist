@@ -1,23 +1,62 @@
 .auth-page {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1;
     padding: 15px;
 }
 
+.auth-header {
+    margin-bottom: 40px;
+
+    .title {
+        font-family: 'Limelight', var(--heading);
+        font-size: 60px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        color: var(--color7);
+        animation: glowIn 3s ease-in-out forwards;
+    }
+
+    .tagline {
+        font-family: 'Limelight', var(--heading);
+        font-size: 20px;
+        color: var(--color7);
+        animation: glowIn 2s ease-in-out forwards;
+    }
+}
+
 .auth-card {
     background: var(--color1);
     border-radius: 12px;
-    padding: 40px 40px;
+    padding: 40px 40px; 
     width: 100%;
     max-width: 420px;
     box-shadow: 0 4px 24px rgb(255 255 255 / 30%), 0 0 40px rgb(255 255 255 / 30%);
 }
 
+.auth-card-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-card-container.initial-glow .auth-card {
+    animation: cardGlowIn 1s ease-in-out forwards;
+}
+
+.auth-card-container.initial-glow {
+    animation: cardSwapIn 0.3s ease-in-out forwards;
+}
+
 .auth-card h1 {
     margin-top: 0;
     line-height: 1;
+    color: var(--color2);
+    font-weight: 550;
+    font-size: 30px;
 }
 
 .auth-card form {
@@ -32,8 +71,10 @@
     margin-bottom: 4px;
     font-size: 14px;
     font-weight: 500;
+    pointer-events: none;
 }
 
+/* Input fields */
 .auth-card input {
     width: 100%;
     padding: 10px 12px;
@@ -44,6 +85,13 @@
     background-color: var(--color7);
     color: var(--color6);
     outline: none;
+    transition: all 0.2s ease;
+}
+
+.auth-card input:hover {
+    border-color: #9515154a;
+    background-color: #fdf5f5;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
 .auth-card input:-webkit-autofill,
@@ -53,56 +101,134 @@
     -webkit-box-shadow: 0 0 0 1000px var(--color7) inset;
 }
 
-.auth-card button {
-    margin-top: 8px;
-    min-width: 80px;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color1);
-    background: var(--color4);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    align-self: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 35%);
-}
-
-.auth-card button:hover:not(:disabled) {
-    background: #ba1818;
-}
-
-.auth-card button:disabled {
-    opacity: 0.75;
-    cursor: not-allowed;
-}
-
-.auth-error {
-    color: var(--color3);
+/* Status messages */
+.auth-status {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 5px;
     line-height: 1.25;
+
+    .auth-error {
+        color: red;
+    }
+
+    .auth-success {
+        color: green;
+    }
 }
 
-.auth-link {
-    margin-bottom: -10px;
-    margin-top: 40px;
-    justify-self: left;}
+/* ---Buttons--- */
+
+/* Block button */
+.auth-card form button,
+.auth-card button.btn-primary {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color1);
+    background: var(--color4);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+    width: 100%;
+    min-width: 80px;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    align-self: center;
+    transition: all 0.2s ease;
+}
+
+.auth-card form button:hover:not(:disabled),
+.auth-card button.btn-primary:hover:not(:disabled) {
+    background: #ba1818;
+}
+
+.auth-card form button:active:not(:disabled),
+.auth-card button.btn-primary:active:not(:disabled) {
+    background: #731212;
+}
+
+.auth-card form button:disabled,
+.auth-card button.btn-primary:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+}
 
 .spinner {
     display: inline-block;
     width: 16px;
     height: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top-color: var(--color1);
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--color1);
+}
+
+.spinner.light {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--color1);
+}
+
+.spinner.dark {
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-top-color: var(--color6);
 }
 
 @keyframes spin {
     to {
         transform: rotate(360deg);
     }
+}
+
+@keyframes glowIn {
+    from {
+        opacity: 0;
+        text-shadow: 0 0 10px rgba(230, 180, 160, 0);
+    }
+    to {
+        opacity: 1;
+        text-shadow: 0 0 20px rgba(230, 180, 160, 0.6), 0 0 40px rgba(230, 180, 160, 0.3);
+    }
+}
+
+@keyframes cardGlowIn {
+    from {
+        opacity: 0.35;
+        box-shadow: 0 0 10px rgb(255 255 255 / 0%), 0 0 20px rgb(255 255 255 / 0%);
+    }
+    to {
+        opacity: 1;
+        box-shadow: 0 4px 24px rgb(255 255 255 / 30%), 0 0 40px rgb(255 255 255 / 30%);
+    }
+}
+
+@keyframes cardSwapIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Back button */
+.back-button a {
+    all: unset;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 650;
+    color: var(--color4);
+    display: flex;
+    align-items: center;
+    margin-top: -23px;
+    margin-bottom: 30px;
+    margin-left: -20px;
+    transition: all 0.2s ease;
+}
+
+.back-button a:hover {
+    color: #ba1818;
+}
+
+.back-button a:active {
+    color: #731212;
 }
