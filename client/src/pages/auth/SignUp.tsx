@@ -47,6 +47,10 @@ export default function SignUp() {
 
   return (
     <div className="auth-page">
+      <div className="auth-header">
+        <div className="title">Velvet</div>
+        <div className="tagline">Curate your perfect watch catalog.</div>
+      </div>
       <div className="auth-card">
         <h1>Create an Account</h1>
         <div className="auth-status">

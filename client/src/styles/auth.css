@@ -7,18 +7,43 @@
     padding: 15px;
 }
 
+.auth-header {
+    margin-bottom: 40px;
+
+    .title {
+        font-family: 'Limelight', var(--heading);
+        font-size: 60px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        color: var(--color7);
+        animation: glowIn 3s ease-in-out forwards;
+    }
+
+    .tagline {
+        font-family: 'Limelight', var(--heading);
+        font-size: 20px;
+        color: var(--color7);
+        animation: glowIn 2s ease-in-out forwards;
+    }
+}
+
 .auth-card {
     background: var(--color1);
     border-radius: 12px;
-    padding: 40px 40px;
+    padding: 40px 40px; 
     width: 100%;
     max-width: 420px;
     box-shadow: 0 4px 24px rgb(255 255 255 / 30%), 0 0 40px rgb(255 255 255 / 30%);
+    animation: cardGlowIn 1s ease-in-out forwards;
 }
 
 .auth-card h1 {
     margin-top: 0;
     line-height: 1;
+    color: var(--color2);
+    font-weight: 550;
+    font-size: 30px;
 }
 
 .auth-card form {
@@ -33,6 +58,7 @@
     margin-bottom: 4px;
     font-size: 14px;
     font-weight: 500;
+    pointer-events: none;
 }
 
 /* Input fields */
@@ -137,6 +163,28 @@
 @keyframes spin {
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes glowIn {
+    from {
+        opacity: 0;
+        text-shadow: 0 0 10px rgba(230, 180, 160, 0);
+    }
+    to {
+        opacity: 1;
+        text-shadow: 0 0 20px rgba(230, 180, 160, 0.6), 0 0 40px rgba(230, 180, 160, 0.3);
+    }
+}
+
+@keyframes cardGlowIn {
+    from {
+        opacity: 0.35;
+        box-shadow: 0 0 10px rgb(255 255 255 / 0%), 0 0 20px rgb(255 255 255 / 0%);
+    }
+    to {
+        opacity: 1;
+        box-shadow: 0 4px 24px rgb(255 255 255 / 30%), 0 0 40px rgb(255 255 255 / 30%);
     }
 }
 

@@ -29,8 +29,10 @@ export default function LogIn() {
 
   return (
     <div className="auth-page">
-      <h1>Velvet</h1>
-      <h2>Create your watchlists. All in one place.</h2>
+      <div className="auth-header">
+        <div className="title">Velvet</div>
+        <div className="tagline">Curate your perfect watch catalog.</div>
+      </div>
       <div className="auth-card">
         <h1>Welcome Back</h1>
         <div className="auth-status">
