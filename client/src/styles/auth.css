@@ -35,7 +35,20 @@
     width: 100%;
     max-width: 420px;
     box-shadow: 0 4px 24px rgb(255 255 255 / 30%), 0 0 40px rgb(255 255 255 / 30%);
+}
+
+.auth-card-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-card-container.initial-glow .auth-card {
     animation: cardGlowIn 1s ease-in-out forwards;
+}
+
+.auth-card-container.initial-glow {
+    animation: cardSwapIn 0.3s ease-in-out forwards;
 }
 
 .auth-card h1 {
@@ -188,8 +201,17 @@
     }
 }
 
+@keyframes cardSwapIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* Back button */
-.back-button button {
+.back-button a {
     all: unset;
     cursor: pointer;
     font-size: 14px;
@@ -203,10 +225,10 @@
     transition: all 0.2s ease;
 }
 
-.back-button button:hover {
+.back-button a:hover {
     color: #ba1818;
 }
 
-.back-button button:active {
+.back-button a:active {
     color: #731212;
 }
